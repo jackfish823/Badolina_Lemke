@@ -6,7 +6,7 @@
 #define TIMESTRING 6
 #define PERHOUR 35
 
-typedef enum {NEW = 1, VIEW, EXIT} Menu_Item;
+typedef enum {EXIT, NEW, VIEW} Menu_Item;
 
 typedef struct date
 {
@@ -165,7 +165,7 @@ int main()
   printf("$$Welecome to badolina salary maneger$$\n\n");
 
   //MENU
-  printf("Menu:\n---------\n1. New shift\n2. View shifts\n3. Exit\n---------\n");
+  printf("Menu:\n---------\n1. New shift\n2. View shifts\n0. Exit\n---------\n");
   printf("Choose -> ");
 
   //SELECT
@@ -192,7 +192,7 @@ int main()
       break;
     }
     //MENU
-    printf("\nMenu:\n---------\n1. New shift\n2. View shifts\n3. Exit\n---------\n");
+    printf("\nMenu:\n---------\n1. New shift\n2. View shifts\n0. Exit\n---------\n");
     printf("Choose -> ");
 
     //SELECT
