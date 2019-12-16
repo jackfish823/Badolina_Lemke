@@ -25,7 +25,7 @@ typedef struct shift
   date date;
 }shiftStruct;
 
-int timediff (char *start, char *end, int *hourLength, int *minutesLength)
+void timediff (char *start, char *end, int *hourLength, int *minutesLength)
 {
   int hs, he, ms, me, hd, md, seconds1, seconds2, totalSeconds;
 
@@ -35,7 +35,7 @@ int timediff (char *start, char *end, int *hourLength, int *minutesLength)
   if (he < hs) he = 24 + he;
 
   seconds1 = hs*60*60 + ms*60;
-  seconds2 = he*60*60 + me*60 ;
+  seconds2 = he*60*60 + me*60;
 
   totalSeconds = seconds2-seconds1;
 
@@ -73,14 +73,12 @@ void New_Shift(struct tm time)
   sal = hoursWork * perh + tip;
 
   printf("\n\nThis shift got you: %0.2f ils\n\nExplenation:\n------------\n1. Worked %0.2fhrs for %d ils each hour\n\n2. Earned %d ils in tips\n", sal, hoursWork, perh, tip);
-
-  // sal = salary, hoursWork = woked hours in float, perh = per hour, tip = tip, hourLength:minutesLength = time
-
   printf("\nPress 1 to save shift or 0 to discard -> ");
 
   while (inputChoose != 1 || inputChoose != 0)
   {
     scanf("%d", &inputChoose);
+
     if (inputChoose == 1)
     {
       currShift.salary = sal;
@@ -108,6 +106,7 @@ void New_Shift(struct tm time)
 
       return;
     }
+
     else
           if (!inputChoose)
           {
