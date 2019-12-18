@@ -1,4 +1,4 @@
-#include <Stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -60,9 +60,9 @@ void New_Shift(struct tm time)
   printf("Date: %d-%d-%d\n\n", time.tm_year + 1900, time.tm_mon + 1, time.tm_mday);
 
   printf("Insert start time -> ");
-  scanf("%s", &startString);
+  scanf("%s", startString);
   printf("Insert end time -> ");
-  scanf("%s", &endString);
+  scanf("%s", endString);
   printf("Inset tip -> ");
   scanf("%d", &tip);
 
