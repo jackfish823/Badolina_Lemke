@@ -63,7 +63,7 @@ void New_Shift(struct tm time)
   scanf("%s", startString);
   printf("Insert end time -> ");
   scanf("%s", endString);
-  printf("Inset tip -> ");
+  printf("Insert tip -> ");
   scanf("%d", &tip);
 
   timediff(startString, endString, &hourLength, &minutesLength);
