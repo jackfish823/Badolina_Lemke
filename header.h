@@ -63,25 +63,35 @@ void View_Shifts()
       exit(1);
     }
 
-  printf("\n  $$$$$$$$$$$$$$$$$$$$$$$$$$\n  $ ALL OF THE SHIFTS LIST $\n  $$$$$$$$$$$$$$$$$$$$$$$$$$\n\n");
+  printf("\n \t\t\t\t     $$$$$$$$$$$$$$$$$$$$$$$$$$\n\t\t\t\t     $ ALL OF THE SHIFTS LIST $\n\t\t\t\t     $$$$$$$$$$$$$$$$$$$$$$$$$$\n\n");
+  printf("\t+=======+===============+===============+=======+=======+===============+===============+\n");
+  printf("\t| Num   | Date          | From  - To    | Time  | Tip   | Salary        | Total         |\n");
+  printf("\t+=======+===============+===============+=======+=======+===============+===============+\n");
 
   fread(&currShift, sizeof(shiftStruct), 1, f);
+
   while (!feof(f))
   {
     sal += currShift.salary - currShift.tip;
     tips += currShift.tip;
     count++;
 
-    printf(" Date: %d-%d-%d        #%d\n From: %s TO %s\n Time: %0.2f\n Tip: %0d ils\n Salary: %0.2f ils\n Total %0.2f ils\n----------------------------\n", currShift.date.year, currShift.date.month, currShift.date.day, count, currShift.from, currShift.to, currShift.time, currShift.tip, currShift.salary-currShift.tip, currShift.salary);
+    //printf(" Date: %d-%d-%d        #%d\n From: %s TO %s\n Time: %0.2f\n Tip: %0d ils\n Salary: %0.2f ils\n Total %0.2f ils\n----------------------------\n", currShift.date.year, currShift.date.month, currShift.date.day, count, currShift.from, currShift.to, currShift.time, currShift.tip, currShift.salary-currShift.tip, currShift.salary);
+
+
+    printf("\t|  %d\t| %0.2d/%0.2d/%d\t| %s\t- %s\t| %0.2fh\t| %0d\t| %0.2f\t| %0.2f\t|\n", count, currShift.date.day, currShift.date.month, currShift.date.year, currShift.from, currShift.to, currShift.time, currShift.tip, currShift.salary-currShift.tip, currShift.salary);
+
     fread(&currShift, sizeof(shiftStruct), 1, f);
   }
+
   fclose(f);
+  printf("\t+=======+===============+===============+=======+=======+===============+===============+\n");
 
-    printf("\n# Salary check will be %0.2f ils! #\n# and %d in tips (total of %0.2f) #\n", sal, tips, sal+tips);
+  printf("\n\t+ Salary check will be %0.2f ils!  \n\t+ and %d in tips (total of %0.2f)  \n", sal, tips, sal+tips);
 
-    key = getchar();
-    key = getchar();
-    return;
+  key = getchar();
+  key = getchar();
+  return;
 }
 
 void New_Shift(struct tm time)
@@ -151,4 +161,20 @@ void New_Shift(struct tm time)
             return;
           }
   }
+}
+
+int Menu()
+{
+  int selection;
+  printf("----------------------------------\n");
+  printf("      * Available Options *       \n");
+  printf("----------------------------------\n");
+  printf("\n    1. New shift\n    2. View shifts\n\n    0. Exit\n\n");
+  printf("----------------------------------\n\n");
+
+  printf("Enter Option: ");
+
+  scanf("%d", &selection);
+
+  return selection;
 }

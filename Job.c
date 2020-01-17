@@ -8,14 +8,9 @@ int main()
   struct tm tm = *localtime(&t); //for date
 
   //HEADER
-  printf("$$ Welecome to badolina salary maneger $$\n\n");
+  printf(" ____            _       _ _             \n|  _ \\          | |     | (_)            \n| |_) | __ _  __| | ___ | |_ _ __   __ _ \n|  _ < / _` |/ _` |/ _ \\| | | '_ \\ / _` |\n| |_) | (_| | (_| | (_) | | | | | | (_| |\n|____/ \\__,_|\\__,_|\\___/|_|_|_| |_|\\__,_|\n\n");
 
-  //MENU
-  printf("Menu:\n---------\n1. New shift\n2. View shifts\n0. Exit\n---------\n");
-  printf("Choose -> ");
-
-  //SELECT
-  scanf("%d", &selection);
+  selection = Menu();
 
   while (selection != EXIT)
   {
@@ -33,11 +28,6 @@ int main()
       break;
     }
 
-    //MENU
-    printf("\nMenu:\n---------\n1. New shift\n2. View shifts\n0. Exit\n---------\n");
-    printf("Choose -> ");
-
-    //SELECT
-    scanf("%d", &selection);
+    selection = Menu();
   }
 }
