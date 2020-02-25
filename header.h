@@ -87,7 +87,7 @@ void View_Shifts()
   fclose(f);
   printf("\t+=======+===============+===============+=======+=======+===============+===============+\n");
 
-  printf("\n\t+ Salary check will be %0.2f ils!  \n\t+ and %d in tips (total of %0.2f)  \n", sal, tips, sal+tips);
+  printf("\n\t+ Salary check will be %0.2f ils!  \n\t+ and %d in tips (total of %0.2f)  \n\t+ average: %d ils  \n", sal, tips, sal+tips, sal/count);
 
   key = getchar();
   key = getchar();
